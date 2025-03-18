@@ -7,7 +7,8 @@ import java.util.Scanner;
  * Mag solution to JobAssignmentFinder lab.
  * 
  * @author tmagliery
- *
+ * @author 2 Will Otterbein, extended w/ Lab 5 Required Methods
+ * A01372608, Set D
  */
 public class JobAssignmentFinder {
 
@@ -147,6 +148,64 @@ public class JobAssignmentFinder {
 		return maxBenefit;
 
 	}
+
+	/**
+	 * Permutation of the numbers from 0 to N-1 where NxN is the dimension of current benefit matrix.
+	 * 
+	 * @return
+	 */
+	public ArrayList<Integer> getGreedyAssignment()
+	{
+		ArrayList<Integer> greedyAssignment = new ArrayList<>();
+		int[] tracker = new int[problemSize];
+		int curMax, curMaxI;
+
+		for (int[] ints : benefitMatrix)
+		{
+			curMaxI = 0; curMax = 0;
+			for (int i = 0; i < ints.length; i++)
+			{
+				if (tracker[i] != 1 && ints[i] > curMax)
+				{
+					curMaxI = i;
+					curMax = ints[i];
+				}
+			}
+			tracker[curMaxI] = 1;
+			greedyAssignment.add(curMaxI);
+		}
+
+		return greedyAssignment;
+	}
+
+	/**
+	 * Calculates the total value of the current job assignment.
+	 * 
+	 * @return
+	 */
+	public int greedyAssignmentTotalValue()
+	{
+		int[] tracker = new int[problemSize];
+		int curMax, curMaxI, sum = 0;
+
+		for (int[] ints : benefitMatrix)
+		{
+			curMaxI = 0; curMax = 0;
+			for (int i = 0; i < ints.length; i++)
+			{
+				if (tracker[i] != 1 && ints[i] > curMax)
+				{
+					curMaxI = i;
+					curMax = ints[i];
+				}
+			}
+			tracker[curMaxI] = 1;
+			sum += ints[curMaxI];
+		}
+		return sum;
+	}
+
+	
 
 	/**
 	 * Recursive decrease-and-conquer algorithm to generate a list of all
