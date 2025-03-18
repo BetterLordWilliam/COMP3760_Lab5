@@ -205,7 +205,62 @@ public class JobAssignmentFinder {
 		return sum;
 	}
 
-	
+	/**
+	 * Permutation of the numbers from 0 to N-1 where NxN is the dimension of current benefit matrix.
+	 * 
+	 * @return
+	 */
+	public ArrayList<Integer> getGreedy2Assignment()
+	{
+		ArrayList<Integer> greedyAssignment = new ArrayList<>();
+		int[] tracker = new int[problemSize];
+		int curMax, curMaxI;
+
+		for (int j = 0; j < problemSize; j++)
+		{
+			curMaxI = 0; curMax = 0;
+			for (int i = 0; i < problemSize; i++)
+			{
+				if (tracker[i] != 1 && benefitMatrix[i][j] > curMax)
+				{
+					curMaxI = i;
+					curMax = benefitMatrix[i][j];
+				}
+			}
+			tracker[curMaxI] = 1;
+			greedyAssignment.add(curMaxI);
+		}
+
+		return greedyAssignment;
+	}
+
+	/**
+	 * Calculates the total value of the current job assignment.
+	 * 
+	 * @return
+	 */
+	public int greedy2AssignmentTotalValue()
+	{
+		int[] tracker = new int[problemSize];
+		int curMax, curMaxI, sum = 0;
+
+		for (int j = 0; j < problemSize; j++)
+		{
+			curMaxI = 0; curMax = 0;
+			for (int i = 0; i < problemSize; i++)
+			{
+				if (tracker[i] != 1 && benefitMatrix[i][j] > curMax)
+				{
+					curMaxI = i;
+					curMax = benefitMatrix[i][j];
+				}
+			}
+			tracker[curMaxI] = 1;
+			sum += curMax;
+		}
+
+		return sum;
+	}
 
 	/**
 	 * Recursive decrease-and-conquer algorithm to generate a list of all

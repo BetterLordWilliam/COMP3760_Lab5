@@ -33,9 +33,9 @@ public class Driver
                     System.out.println("Greedy 1 maximum assignment permutation: " + jf.getGreedyAssignment());
                     System.out.println("Greedy 1 assignment value: " + jf.greedyAssignmentTotalValue());
                     System.out.println("\n");
-                    // System.out.println("Greedy 2 maximum assignment permutation: " + jf.getGreedyAssignment());
-                    // System.out.println("Greedy 2 assignment value: " + jf.greedyAssignmentTotalValue());
-                    // System.out.println("\n");
+                    System.out.println("Greedy 2 maximum assignment permutation: " + jf.getGreedy2Assignment());
+                    System.out.println("Greedy 2 assignment value: " + jf.greedy2AssignmentTotalValue());
+                    System.out.println("\n");
                 }
                 // Only run greedy
                 else
@@ -43,9 +43,9 @@ public class Driver
                     System.out.println("Greedy 1 maximum assignment permutation: " + jf.getGreedyAssignment());
                     System.out.println("Greedy 1 assignment value: " + jf.greedyAssignmentTotalValue());
                     System.out.println("\n");
-                    // System.out.println("Greedy 2 maximum assignment permutation: " + jf.getGreedyAssignment());
-                    // System.out.println("Greedy 2 assignment value: " + jf.greedyAssignmentTotalValue());
-                    // System.out.println("\n");
+                    System.out.println("Greedy 2 maximum assignment permutation: " + jf.getGreedy2Assignment());
+                    System.out.println("Greedy 2 assignment value: " + jf.greedy2AssignmentTotalValue());
+                    System.out.println("\n");
                 }
             }
         } catch (FileNotFoundException e) {
