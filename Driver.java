@@ -2,6 +2,7 @@ import java.io.FileNotFoundException;
 
 /**
  * Testing class.
+ * @author Will Otterbein A01372608 Set D
  */
 public class Driver
 {
@@ -36,6 +37,9 @@ public class Driver
                     System.out.println("Greedy 2 maximum assignment permutation: " + jf.getGreedy2Assignment());
                     System.out.println("Greedy 2 assignment value: " + jf.greedy2AssignmentTotalValue());
                     System.out.println("\n");
+                    System.out.println("Greedy 3 maximum assignment permutation: " + jf.getGreedy3Assignment());
+                    System.out.println("Greedy 3 assignment value: " + jf.greedy3AssignmentTotalValue());
+                    System.out.println("\n");
                 }
                 // Only run greedy
                 else
@@ -45,6 +49,9 @@ public class Driver
                     System.out.println("\n");
                     System.out.println("Greedy 2 maximum assignment permutation: " + jf.getGreedy2Assignment());
                     System.out.println("Greedy 2 assignment value: " + jf.greedy2AssignmentTotalValue());
+                    System.out.println("\n");
+                    System.out.println("Greedy 3 maximum assignment permutation: " + jf.getGreedy3Assignment());
+                    System.out.println("Greedy 3 assignment value: " + jf.greedy3AssignmentTotalValue());
                     System.out.println("\n");
                 }
             }

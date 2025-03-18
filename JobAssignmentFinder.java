@@ -3,6 +3,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*
+ * | Big O class of Lab 1 | Big O class of Lab 5 | Problem 2 Big O |
+ * | -------------------- | -------------------- | --------------- |
+ * | O(N!)                | O(N^2)               | O(N^2)          |
+ */
+
 /**
  * Mag solution to JobAssignmentFinder lab.
  * 
@@ -259,6 +265,61 @@ public class JobAssignmentFinder {
 			sum += curMax;
 		}
 
+		return sum;
+	}
+
+	/**
+	 * Permutation of the numbers from 0 to N-1 where NxN is the dimension of current benefit matrix.
+	 * 
+	 * @return
+	 */
+	public ArrayList<Integer> getGreedy3Assignment()
+	{
+		ArrayList<Integer> greedyAssignment = new ArrayList<>();
+		int[] tracker = new int[problemSize];
+		int curMax, curMaxI;
+
+		for (int j = problemSize - 1; j >= 0; j--)
+		{
+			curMaxI = 0; curMax = 0;
+			for (int i = benefitMatrix[j].length - 1; i >= 0; i--)
+			{
+				if (tracker[i] != 1 && benefitMatrix[j][i] > curMax)
+				{
+					curMaxI = i;
+					curMax = benefitMatrix[j][i];
+				}
+			}
+			tracker[curMaxI] = 1;
+			greedyAssignment.add(curMaxI);
+		}
+		return greedyAssignment;
+	}
+
+	/**
+	 * Calculates the total value of the current job assignment.
+	 * 
+	 * @return
+	 */
+	public int greedy3AssignmentTotalValue()
+	{
+		int[] tracker = new int[problemSize];
+		int curMax, curMaxI, sum = 0;
+
+		for (int j = problemSize - 1; j >= 0; j--)
+		{
+			curMaxI = 0; curMax = 0;
+			for (int i = benefitMatrix[j].length - 1; i >= 0; i--)
+			{
+				if (tracker[i] != 1 && benefitMatrix[j][i] > curMax)
+				{
+					curMaxI = i;
+					curMax = benefitMatrix[j][i];
+				}
+			}
+			tracker[curMaxI] = 1;
+			sum += curMax;
+		}
 		return sum;
 	}
 
